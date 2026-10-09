@@ -13,12 +13,11 @@ const authMiddleware = (req, res, next) => {
     req.user=decoded;
     next();
     }
-    catch(err){
-        return res.status(500).json({
-            message:"Something went wrong..",
-            error:err.message,
-        })
-    }
+    catch (err) {
+    return res.status(401).json({
+        message: "Invalid or expired token"
+    });
+}
 };
 
 module.exports={authMiddleware};

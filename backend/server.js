@@ -4,6 +4,7 @@ const dotenv=require("dotenv");
 const cookieParser = require("cookie-parser");
 const connectDB=require("./config/db.js");
 const authRoutes = require("./routes/authRoutes");
+const complaintRoutes=require("./routes/complaintRoutes.js");
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/complaints", complaintRoutes);
 
 app.get("/",(req,res)=>{
     res.send("i am yash, a software developer...");
